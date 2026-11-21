@@ -25,14 +25,14 @@ One front-page image, 1024×1024, 32 stories across 7 regions:
   launch, PIF Tower strike — all Thursday 19 Nov; COP31 draft cut — Thu;
   Kenya Ebola discharge — 11 Nov).
 
-Region balance: ASIA 6, EUROPE 5, MIDEAST 3, AFRICA 3, AMERICAS 9,
-OCEANIA 3, GLOBAL 3 — no region above 30%.
+Region balance: ASIA 5, EUROPE 6, MIDEAST 4, AFRICA 4, AMERICAS 8,
+OCEANIA 2, GLOBAL 3 — no region above 30%.
 
 ## Verification
 
 Every story was confirmed against **2+ independent sources dated
-20 November 2026** before it went on the page; 42 candidates were
-confirmed and 10 cut for region balance, and 60+ candidates were cut as
+20 November 2026** before it went on the page; 46 candidates were
+confirmed of 101 checked, 14 held back for region balance, and 55 cut as
 other days' news, single-source, or unverified. Every figure on the page
 carries its source in the verification log (kept in the build work dir,
 not in this repo — the log is research notes, the repo is the entry).
@@ -47,7 +47,7 @@ brief under the UTC-day convention; the Peru quake (19:09 Friday local,
 
 | File | What it is |
 |---|---|
-| `entry.png` | The entry image (1024×1024, 242 KB) |
+| `entry.png` | The entry image (1024×1024, 241 KB) |
 | `draw_20nov.py` | The program that draws it (Python + PIL, Noto fonts) — the image source |
 | `main.ts` | The entry program: validates `entry.png` (PNG magic, IHDR 1024×1024, ≤1 MiB) and copies it to `$MAKEFUN_OUTPUT_DIR/entry.png` |
 | `package.json` | `{"type": "module"}` |

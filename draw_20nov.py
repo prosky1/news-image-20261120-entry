@@ -371,6 +371,14 @@ def s_crowd(d, x, y, w, h):
         d.ellipse([cx - 4, y + 3, cx + 4, y + 11], fill=c)
         d.rectangle([cx - 5, y + 12, cx + 5, y + h - 2], fill=c)
 
+def s_bars(d, x, y, w, h):
+    """Bar chart — for a statistics release."""
+    strip(d, x, y, w, h, (235, 235, 240))
+    for i, bh in enumerate([8, 12, 10, 16, 20, 14]):
+        bx = x + 14 + i * 18
+        d.rectangle([bx, y + h - 4 - bh, bx + 12, y + h - 4],
+                    fill=(150, 60, 60))
+
 def s_doc(d, x, y, w, h):
     strip(d, x, y, w, h, (225, 240, 225))
     d.rectangle([x + 10, y + 3, x + w - 10, y + h - 3], fill=WHITE,
@@ -529,17 +537,17 @@ MEDIUM_ART = {"bridge": s_bridge, "cyclone": s_cyclone,
               "ballot": s_ballot, "ship": s_ship, "chip": s_chip,
               "game": s_game, "quake": s_quake, "cricket": s_cricket,
               "soccer": s_soccer, "planet": s_planet, "rain": s_rain,
-              "fence": s_fence, "tokyo": s_tokyo}
+              "fence": s_fence, "tokyo": s_tokyo, "bars": s_bars}
 
 # ---------------------------------------------------------------- data
 # All figures from the four verification logs (verify-regions.md,
 # verify-markets.md, verify-misc.md, verify-features.md): every story
 # CONFIRMED by 2+ independent sources dated 20 Nov 2026.
 # Slate: 4 features + 12 mediums + 16 briefs = 32 stories.
-# Regions: ASIA 6, EUROPE 5, MIDEAST 3, AFRICA 3, AMERICAS 9,
-# OCEANIA 3, GLOBAL 3 — no region above 30%, all at 2 or more.
-REGIONS = [("ASIA", 6), ("EUROPE", 5), ("MIDEAST", 3), ("AFRICA", 3),
-           ("AMERICAS", 9), ("OCEANIA", 3), ("GLOBAL", 3)]
+# Regions: ASIA 5, EUROPE 6, MIDEAST 4, AFRICA 4, AMERICAS 8,
+# OCEANIA 2, GLOBAL 3 — no region above 30%, all at 2 or more.
+REGIONS = [("ASIA", 5), ("EUROPE", 6), ("MIDEAST", 4), ("AFRICA", 4),
+           ("AMERICAS", 8), ("OCEANIA", 2), ("GLOBAL", 3)]
 
 STATS = [
     ("3", "Kyiv bridges hit"),
@@ -617,13 +625,13 @@ MEDIUMS = [
               "new incident, not last week's.",
          art="ship"),
     dict(tag="GAMING", head="GTA VI banks $3.79bn on day one",
-         deck="Biggest entertainment launch ever announced; 32.5m copies "
-              "pre-sold.",
+         deck="Announced Friday: biggest entertainment launch ever; "
+              "32.5m copies pre-sold.",
          art="game"),
     dict(tag="AFRICA", head="South Africa: 5,590 murders in a quarter",
          deck="Police release Jul-Sep figures: ~60 a day; 581 women, "
               "4,362 child rape victims.",
-         art="gavel"),
+         art="bars"),
     dict(tag="CRICKET", head="Nicholls' 175* lifts New Zealand to 368",
          deck="Phillips adds 118; Jaiswal's 85 takes India to 159/1.",
          art="cricket"),
@@ -634,7 +642,7 @@ MEDIUMS = [
 ]
 
 BRIEFS = [
-    ("Space", "BepiColombo reaches Mercury after 8 years."),
+    ("Space", "BepiColombo at Mercury; orbit insertion Sat."),
     ("Florida", "Record floods; river beats 1953 crest."),
     ("Football", "Ronaldo scores No. 986; Al-Ahli win 3-1."),
     ("Bundesliga", "Bayern 1-1 Koln; Kane injures ankle."),
@@ -642,11 +650,11 @@ BRIEFS = [
     ("Japan", "Core CPI 2.2%, a 2026 high."),
     ("China", "Central bank holds rates for an 18th month."),
     ("Markets", "Gold -3%; bitcoin below $60,000."),
-    ("Fed", "Cook: more rate hikes needed."),
-    ("Space", "Norma 'arm' may be a shock front."),
+    ("Italy", "CGIL strike: a million march, union says."),
+    ("Iraq", "Army enters Kataib Hezbollah stronghold."),
     ("South Africa", "First woman deputy president dies at 71."),
     ("Nigeria", "Barge capsizes; 4 dead, 24 rescued."),
-    ("Cricket", "Rain hands Pakistan the Blind Asia Cup."),
+    ("Kenya", "Oil drilling begins; first crude due 1 Dec."),
     ("Diplomacy", "Xi and Albanese hail a 'turnaround'."),
     ("Diplomacy", "Aus, Canada, NZ demand a ceasefire."),
     ("Washington", "Senate passes energy bill 62-33."),
@@ -670,12 +678,12 @@ MAP_DOTS = [
     (11.6, 48.1, "EUROPE"),    # Munich
     (-80.8, 28.1, "AMERICAS"), # Melbourne, Florida
     (6.1, 4.8, "AFRICA"),      # Bayelsa
-    (90.4, 23.8, "ASIA"),      # Dhaka
+    (35.7, 3.5, "AFRICA"),     # Turkana
+    (44.2, 32.9, "MIDEAST"),   # Jurf al-Sakhar
     (114.1, 22.5, "ASIA"),     # Shenzhen
     (149.1, -35.3, "OCEANIA"), # Canberra
     (116.4, 39.9, "ASIA"),     # Beijing
-    (-70.7, -33.4, "AMERICAS"),# Santiago
-    (151.2, -33.9, "OCEANIA"), # Sydney
+    (12.5, 41.9, "EUROPE"),    # Rome
     (-77.0, 39.0, "AMERICAS"), # Washington
     (-118.5, 34.0, "AMERICAS"),# Los Angeles
 ]
